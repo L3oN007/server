@@ -1,0 +1,59 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  userId: String!
+  name: String!
+  email: String!
+  password: String
+  dob: String!
+  gender: String!
+  status: String!
+  createdOn: String!
+  modifiedOn: String!
+}
+
+type UserDto {
+  name: String!
+}
+
+type LearningObjective {
+  code: String!
+  name: String!
+  description: String!
+}
+
+type TrainingUnit {
+  unitCode: String!
+  unitName: String!
+  dayNumber: Int!
+  trainingContents: [TrainingContent!]!
+}
+
+type TrainingContent {
+  content: String!
+  deliveryType: String!
+  duration: Int!
+  trainingFormat: String!
+  learningObjectives: [LearningObjective!]!
+}
+
+type Syllabus {
+  topicCode: String!
+  topicName: String!
+  publishStatus: String!
+  version: Int!
+  createdBy: UserDto!
+  createdOn: String!
+  modifiedBy: UserDto!
+  modifiedOn: String!
+  learningObjectives: [LearningObjective!]!
+  trainingUnits: [TrainingUnit!]!
+}
+
+type Query {
+  getUsers: [User!]!
+  syllabuses: [Syllabus!]!
+  syllabus(topicCode: String!): Syllabus
+}
